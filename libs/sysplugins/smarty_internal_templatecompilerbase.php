@@ -1464,6 +1464,10 @@ abstract class Smarty_Internal_TemplateCompilerBase
      */
     private function compileTag2($tag, $args, $parameter)
     {
+        if(is_string($tag)){
+            $tag = strtolower($tag);
+        }
+        
         $plugin_type = '';
         // $args contains the attributes parsed and compiled by the lexer/parser
         // assume that tag does compile into code, but creates no HTML output
