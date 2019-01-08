@@ -1465,7 +1465,9 @@ abstract class Smarty_Internal_TemplateCompilerBase
     private function compileTag2($tag, $args, $parameter)
     {
         if(is_string($tag)){
-            $tag = strtolower($tag);
+            if(in_array(strtolower($tag), ['if', 'else', 'elseif', 'for', 'foreach'])){
+                $tag = strtolower($tag);
+            }
         }
         
         $plugin_type = '';
